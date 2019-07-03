@@ -27,7 +27,7 @@ public class MainActivity extends TransparentNotificationBarActivity {
         });
 
         //根据背景颜色的深浅，设置通知栏文字透明度
-        if ((colorBLUE + colorGREEN + colorRED) > (255 * 3/2)) {
+        if ((colorBLUE + colorGREEN + colorRED) < (255 * 3/2)) {
             TransparentUtil.setStatusBarLightMode(this, false);
         } else {
             TransparentUtil.setStatusBarLightMode(this, true);
