@@ -1,6 +1,5 @@
 package com.kukugtu.tnotificationbar;
 
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -28,18 +27,12 @@ public abstract class TransparentNotificationBarActivity extends AppCompatActivi
     @Override
     public void setContentView(View view) {
         rootView = view;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            TransparentUtil.setTranspartVeiw(this);
-        }
         super.setContentView(rootView);
     }
 
     @Override
     public void setContentView(int layoutResID) {
         rootView = LayoutInflater.from(this).inflate(layoutResID, null);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            TransparentUtil.setTranspartVeiw(this);
-        }
         super.setContentView(rootView);
     }
 
@@ -53,11 +46,9 @@ public abstract class TransparentNotificationBarActivity extends AppCompatActivi
     @Override
     protected void onStart() {
         super.onStart();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            if (!isOnrestart) {
-                isOnrestart = false;
-                initSwipeBackFinish();
-            }
+        if (!isOnrestart) {
+            isOnrestart = false;
+            initSwipeBackFinish();
         }
     }
 
